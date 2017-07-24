@@ -9,7 +9,7 @@ use File;
 class Profile extends Model
 {
 
-        protected $fillable =['name','address','lastname','location','tagline','birthday','description','abn','want_to','path','background_picture','user_id','fb_img','img'];
+        protected $fillable =['name','address','lastname','location','tagline','birthday','description','abn','want_to','path','background_picture','user_id','fb_img','img','aboutme','latitude','longitude'];
 
         
         public function transportations(){
