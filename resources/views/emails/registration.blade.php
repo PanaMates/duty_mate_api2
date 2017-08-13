@@ -71,7 +71,7 @@
 
 
 <!-- section-1 "navbar" -->
-<table class="table_full editable-bg-color bg_color_483869 editable-bg-image" bgcolor="#483869" width="100%" align="center" mc:repeatable="castellab" mc:variant="Header" cellspacing="0" cellpadding="0" border="0" style="background-image: url(http://emails.castellab.com/light/images/bg-1.jpg); background-repeat: no-repeat; background-position: center left; background-size: cover; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" background="http://emails.castellab.com/light/images/bg-1.jpg">
+<table class="table_full editable-bg-color bg_color_483869 editable-bg-image" bgcolor="#483869" width="100%" align="center" mc:repeatable="castellab" mc:variant="Header" cellspacing="0" cellpadding="0" border="0" style="background-image: url(http://emails.castellab.com/light/images/bg-1.jpg); background-repeat: no-repeat; background-position: center left; background-size: cover; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" background="http://dutymate.com.au/images/bg2.jpg">
 	<tbody><tr>
 		<td>
 			<table class="table1" width="600" align="center" border="0" cellspacing="0" cellpadding="0">
@@ -89,32 +89,7 @@
 						<!-- Nav menu -->
 						<table class="no_float" width="" align="right" border="0" cellspacing="0" cellpadding="0">
 							<tbody><tr>
-								<!-- Home -->
-								<td mc:edit="text101" class="text_color_4f73a9" style="color: #4f73a9; font-size: 14px; font-weight: 500; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;">
-									<div class="editable-text">
-										<span class="text_container">
-											<a href="#" class="text_color_4f73a9" style="text-decoration: none; color: #4f73a9;">Home</a>
-										</span>
-									</div>
-								</td>
-								<td width="50"></td>
-								<!-- Work -->
-								<td mc:edit="text102" class="text_color_4f73a9" style="color: #4f73a9; font-size: 14px; font-weight: 500; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;">
-									<div class="editable-text">
-										<span class="text_container">
-											<a href="#" class="text_color_4f73a9" style="text-decoration: none; color: #4f73a9;">Work</a>
-										</span>
-									</div>
-								</td>
-								<td width="50"></td>
-								<!-- Contact -->
-								<td mc:edit="text103" class="text_color_4f73a9" style="color: #4f73a9; font-size: 14px; font-weight: 500; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;">
-									<div class="editable-text">
-										<span class="text_container">
-											<a href="#" class="text_color_4f73a9" style="text-decoration: none; color: #4f73a9;">Contact</a>
-										</span>
-									</div>
-								</td>
+						
 							</tr>
 							<tr><td height="30"></td></tr>
 						</tbody></table><!-- END nav menu -->
@@ -130,7 +105,7 @@
 							<tbody><tr>
 								<td class="editable-img">
 									<div style="border-style: none !important; display: block; border: 0 !important;" href="">
-										<img editable="true" class="centerize" mc:edit="image102" src="http://localhost:8000/images/logo.png" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="">
+										<img editable="true" class="centerize" mc:edit="image102" src="http://dutymate.com.au/images/logo.png" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="">
 									</div>
 								</td>
 							</tr>
