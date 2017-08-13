@@ -20,7 +20,9 @@ use App\Work;
 use App\Review;
 use App\ProfileSpecielity;
 use App\Transportation;
+use App\Mail\Registration;
 use Auth;
+use Mail;
 
 
 
@@ -74,6 +76,9 @@ class ApiController extends Controller
                         'img'=>''
                 ]);
                 
+                
+               $this->emailSender($request['email'],$request);
+                
                 return response()->json(['msg'=>'User Saved','status'=>'OK']);
       }
       
@@ -124,8 +129,8 @@ class ApiController extends Controller
         return response()->json(['msg'=>'ok','specialities'=>$specialities]);
     }
 
-    public function getDuties(){
-                $tasks = Task::with(['user','user.profile','speciality'])->get();
+    public function getDuties($limit){
+                $tasks = Task::with(['user','user.profile','speciality'])->limit($limit)->get();
                 return response()->json(['msg'=>'OK','tasks'=>$tasks]);
     }
 
@@ -199,6 +204,14 @@ public function get_my_duties($id){
          $duties_posted   = Task::where(['user_id'=>$id,'task_statuse_id'=>1])->with(['offers','comments','estatus'])->get();
          $duties_accepted = Task::where(['user_id'=>$id ,'task_statuse_id'=>2])->with(['offers','comments','estatus','acceptedUser','acceptedUser.profile'])->get();
          $duties_finished = Task::where(['user_id'=>$id ,'task_statuse_id'=>3])->with(['offers','comments','estatus','review'])->get();
+
+        return response()->json(['msg'=>'OK','duties_posted'=>$duties_posted ,'duties_accepted'=>$duties_accepted ,'duties_finished'=>$duties_finished]);
+}
+public function get_my_own_duties($id){
+        
+         $duties_posted   = Task::where(['user_accepted_id'=>$id,'task_statuse_id'=>2])->with(['user', 'user.profile','offers','comments','estatus'])->get();
+         $duties_accepted = Task::where(['user_accepted_id'=>$id ,'task_statuse_id'=>3])->with(['user','user.profile','offers','comments','estatus','review'])->get();
+         $duties_finished = Task::where(['user_accepted_id'=>$id ,'task_statuse_id'=>4])->with(['user','user.profile','offers','comments','estatus','review'])->get();
 
         return response()->json(['msg'=>'OK','duties_posted'=>$duties_posted ,'duties_accepted'=>$duties_accepted ,'duties_finished'=>$duties_finished]);
 }
@@ -357,15 +370,16 @@ public function deleteSkill(Request $request,$id){
         switch ($request['type']) {
                 case 'Educations':
                         
-                        $education = new Education();
-                        $education->delete($id);
-                        return response()->json(['msg'=>'Education deleted']);
+                        $education = Education::find($id);
+                        $education->delete();
+                        return response()->json(['msg'=>$id]);
                         break;
 
                  case 'Transportations':
                         
-                        $transportation = new Transportation();
-                        $transportation->delete($id);
+                   
+                        $transportation = Transportation::find($id);
+                        $transportation->delete();
                     
 
                         return response()->json(['msg'=>'transport deleted']);
@@ -374,8 +388,8 @@ public function deleteSkill(Request $request,$id){
 
                  case 'Works':
 
-                        $work = new Work();
-                        $work->delete($id);
+                        $work = Work::find($id);
+                        $work->delete();
                         
                         return response()->json(['msg'=>'work deleted']);
                         
@@ -383,8 +397,8 @@ public function deleteSkill(Request $request,$id){
 
                  case 'Languages':
 
-                        $language= new Language();
-                        $language->delete($id);
+                        $language= Language::find($id);
+                        $language->delete();
 
                         return response()->json(['msg'=>'language deleted']);
                         break;
@@ -437,6 +451,12 @@ public function save_review(Request $request){
         $task = Task::where(['id'=>$request['task_id']])->update(['task_statuse_id'=>3]);
         return response()->json(['msg'=>'Review Saved','status'=>'OK'],200,[],JSON_NUMERIC_CHECK);  
 }
+
+//send emails
+
+function emailSender($email, $request) {
+		Mail::to($email)->send(new Registration($request));
+	}
 
  
 

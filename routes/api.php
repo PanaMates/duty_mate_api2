@@ -44,7 +44,7 @@ Route::get('get_especialities','ApiController@getSpecialities');
 
 //get all duties
 
-Route::get('get_duties','ApiController@getDuties');
+Route::get('get_duties/{limit}','ApiController@getDuties');
 
 
 //save image
@@ -79,9 +79,13 @@ Route::post('save_offer','ApiController@save_offer');
 
 Route::get('get_offer/{offer_id}','ApiController@get_offer');
 
-// get duties for a user
+// get post for a user
 
 Route::get('get_my_duties/{user_id}','ApiController@get_my_duties');
+
+// get duties for a user
+
+Route::get('get_my_duties_own/{user_id}','ApiController@get_my_own_duties');
 
 //get profile info
 
