@@ -32,6 +32,7 @@ class Registration extends Mailable
     public function build()
     {
         return $this->from('garcia.solutions@gmail.com')
+                    ->subject('👋  Welcome to DutyMate!')
                      ->view('emails.registration');
     }
 }

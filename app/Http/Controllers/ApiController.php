@@ -458,6 +458,8 @@ function emailSender($email, $request) {
 		Mail::to($email)->send(new Registration($request));
 	}
 
+        
+
  
 
    
