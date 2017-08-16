@@ -71,7 +71,7 @@
 
 
 <!-- section-1 "navbar" -->
-<table class="table_full editable-bg-color bg_color_483869 editable-bg-image" bgcolor="#483869" width="100%" align="center" mc:repeatable="castellab" mc:variant="Header" cellspacing="0" cellpadding="0" border="0" style="background-image: url(); background-repeat: no-repeat; background-position: center left; background-size: cover; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" background="http://dutymate.com.au/images/bg2.jpg">
+<table class="table_full editable-bg-color bg_color_483869 editable-bg-image" bgcolor="#483869" width="100%" align="center" mc:repeatable="castellab" mc:variant="Header" cellspacing="0" cellpadding="0" border="0" style="background-image: url(http://dutymate.com.au/images/bg-email.png); background-repeat: no-repeat; background-position: center left; background-size: cover; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" background="http://dutymate.com.au/images/bg-email.png">
 	<tbody><tr>
 		<td>
 			<table class="table1" width="600" align="center" border="0" cellspacing="0" cellpadding="0">
