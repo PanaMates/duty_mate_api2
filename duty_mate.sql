@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 15, 2017 at 09:12 PM
--- Server version: 5.7.18
+-- Generation Time: Sep 12, 2017 at 11:54 PM
+-- Server version: 5.7.19
 -- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -101,6 +101,14 @@ CREATE TABLE `comments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `comment_text`, `task_id`, `user_id`, `content`, `created_at`, `updated_at`) VALUES
+(1, '', 2, 3, 'hello', '2017-09-13 01:57:02', '2017-09-13 01:57:02'),
+(2, '', 4, 3, 'hello', '2017-09-13 01:57:53', '2017-09-13 01:57:53');
 
 -- --------------------------------------------------------
 
@@ -245,7 +253,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2017_05_30_074411_create_estates_table', 8),
 (29, '2017_06_28_151913_create_profile_specielities_table', 9),
 (30, '2017_06_29_210038_create_avatars_table', 10),
-(31, '2017_07_21_142854_create_reviews_table', 11);
+(31, '2017_07_21_142854_create_reviews_table', 11),
+(32, '2017_09_12_123443_create_reports_table', 12);
 
 -- --------------------------------------------------------
 
@@ -364,6 +373,15 @@ CREATE TABLE `offers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `offers`
+--
+
+INSERT INTO `offers` (`id`, `user_id`, `task_id`, `price`, `message`, `offer_status_id`, `created_at`, `updated_at`) VALUES
+(1, 4, 2, '12', 'yes i do', 2, '2017-09-13 01:12:40', '2017-09-13 03:53:25'),
+(2, 4, 2, '12', 'yes i do', 1, '2017-09-13 01:22:13', '2017-09-13 01:22:13'),
+(3, 3, 3, '12', 'lkkjkljkljlkj', 1, '2017-09-13 01:35:57', '2017-09-13 01:35:57');
+
 -- --------------------------------------------------------
 
 --
@@ -407,7 +425,9 @@ INSERT INTO `payment_infos` (`id`, `user_id`, `account_name`, `account_number`, 
 (3, 68, '7878787', '87878787', '77', 'jnjnjnjnjn', 'njnjnjn', 3, '0996264752', '56565', '2017-07-17 22:41:22', '2017-07-17 22:41:22'),
 (4, 69, 'juan', '7877878', '787', '78787', 'hjhjh', 2, '0996264752', '999', '2017-07-24 18:38:24', '2017-07-24 18:38:24'),
 (5, 70, '6646464', '46464646464', '46', '34', 'chhh', 2, '0996264752', '0101', '2017-07-24 22:18:00', '2017-07-24 22:18:00'),
-(6, 67, '334342', '324324324', '23', 'pacifico guaman', 'cuenca', 2, '234324', '2121', '2017-08-15 01:14:59', '2017-08-15 01:14:59');
+(6, 67, '334342', '324324324', '23', 'pacifico guaman', 'cuenca', 2, '234324', '2121', '2017-08-15 01:14:59', '2017-08-15 01:14:59'),
+(7, 4, '2232323', '2323232323', '232', 'kjkjkj', 'jkjkj', 2, '121212122', '10', '2017-09-13 01:12:30', '2017-09-13 01:12:30'),
+(8, 3, 'jhjhjhj', 'hjhjh', 'hjhjhj', 'jh', 'kj', 2, '767676', 'hjkh', '2017-09-13 01:27:30', '2017-09-13 01:27:30');
 
 -- --------------------------------------------------------
 
@@ -464,6 +484,15 @@ CREATE TABLE `profiles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`id`, `name`, `lastname`, `aboutme`, `location`, `latitude`, `longitude`, `tagline`, `birthday`, `description`, `abn`, `want_to`, `path`, `img`, `fb_image`, `background_picture`, `address`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'juan', 'garcia', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '', '', '', NULL, '', NULL, 1, '2017-08-16 22:56:36', '2017-08-16 22:56:36'),
+(2, 'juan', 'garcia', NULL, '', '-27.4697707', '153.02512350000006', '', '2017-01-01', 'I\'m a great guy', '', '', '', '', NULL, '', 'Brisbane,Queensland', 3, '2017-09-12 22:17:55', '2017-09-12 22:54:11'),
+(3, 'yulimar', 'goyoneche', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '', '', '', NULL, '', NULL, 4, '2017-09-13 01:11:37', '2017-09-13 01:11:37');
 
 -- --------------------------------------------------------
 
@@ -544,6 +573,53 @@ CREATE TABLE `questions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reports`
+--
+
+CREATE TABLE `reports` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_reporter_id` int(11) NOT NULL,
+  `type_report_id` int(11) DEFAULT NULL,
+  `comment` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `user_id`, `user_reporter_id`, `type_report_id`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 12, 1, NULL, 'hello juan', '2017-09-12 21:20:19', '2017-09-12 21:20:19'),
+(2, 12, 1, NULL, 'hello juan', '2017-09-12 21:20:24', '2017-09-12 21:20:24'),
+(3, 12, 1, NULL, 'hello juan', '2017-09-12 21:23:03', '2017-09-12 21:23:03'),
+(4, 12, 1, NULL, 'hello juan', '2017-09-12 21:30:35', '2017-09-12 21:30:35'),
+(5, 12, 1, NULL, 'hello juan', '2017-09-12 21:31:05', '2017-09-12 21:31:05'),
+(6, 12, 1, NULL, 'hello juan', '2017-09-12 21:32:02', '2017-09-12 21:32:02'),
+(7, 12, 1, NULL, 'hello juan', '2017-09-12 21:32:40', '2017-09-12 21:32:40'),
+(8, 12, 1, NULL, 'hello juan', '2017-09-12 21:40:35', '2017-09-12 21:40:35'),
+(9, 12, 1, NULL, 'hello juan', '2017-09-12 21:41:41', '2017-09-12 21:41:41'),
+(10, 12, 1, NULL, 'hello juan', '2017-09-12 21:42:40', '2017-09-12 21:42:40'),
+(11, 1, 1, NULL, 'hello juan', '2017-09-12 21:44:12', '2017-09-12 21:44:12'),
+(12, 1, 1, NULL, 'hello juan', '2017-09-12 21:45:19', '2017-09-12 21:45:19'),
+(13, 1, 1, NULL, 'hello juan', '2017-09-12 21:46:09', '2017-09-12 21:46:09'),
+(14, 1, 1, NULL, 'hello juan', '2017-09-12 21:47:05', '2017-09-12 21:47:05'),
+(15, 1, 1, NULL, 'hello juan', '2017-09-12 21:47:43', '2017-09-12 21:47:43'),
+(16, 1, 1, NULL, 'hello juan', '2017-09-12 21:48:03', '2017-09-12 21:48:03'),
+(17, 1, 1, NULL, 'hello juan', '2017-09-12 21:48:55', '2017-09-12 21:48:55'),
+(18, 1, 1, NULL, 'hello juan', '2017-09-12 21:51:22', '2017-09-12 21:51:22'),
+(19, 1, 1, NULL, 'hello juan', '2017-09-12 21:54:08', '2017-09-12 21:54:08'),
+(20, 1, 1, NULL, 'hello juan', '2017-09-12 21:55:23', '2017-09-12 21:55:23'),
+(21, 1, 1, NULL, 'hello juan', '2017-09-12 21:57:28', '2017-09-12 21:57:28'),
+(22, 1, 1, NULL, 'hello juan', '2017-09-12 21:58:09', '2017-09-12 21:58:09'),
+(23, 1, 1, NULL, 'hello juan', '2017-09-12 22:21:01', '2017-09-12 22:21:01'),
+(24, 3, 3, 1, 'he\'s sending me nudes and i dont like it', '2017-09-12 22:36:18', '2017-09-12 22:36:18'),
+(25, 3, 3, 1, 'this is another test reporting an user', '2017-09-12 22:43:35', '2017-09-12 22:43:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reviews`
 --
 
@@ -574,7 +650,8 @@ INSERT INTO `reviews` (`id`, `user_id`, `task_id`, `feedback`, `stars`, `created
 (17, 70, 6, 'ggggg', 3, '2017-08-15 00:10:33', '2017-08-15 00:10:33'),
 (18, 70, 7, 'hello', 5, '2017-08-15 00:51:03', '2017-08-15 00:51:03'),
 (19, 70, 7, 'didnt like it you are not responsible', 1, '2017-08-15 01:07:55', '2017-08-15 01:07:55'),
-(20, 67, 8, 'didnt like it', 1, '2017-08-15 01:15:51', '2017-08-15 01:15:51');
+(20, 67, 8, 'didnt like it', 1, '2017-08-15 01:15:51', '2017-08-15 01:15:51'),
+(21, 4, 2, 'nxnxnxnxn', 5, '2017-09-13 04:47:02', '2017-09-13 04:47:02');
 
 -- --------------------------------------------------------
 
@@ -646,6 +723,15 @@ CREATE TABLE `tasks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `title`, `description`, `user_id`, `task_type_id`, `task_statuse_id`, `task_latitude`, `task_longitude`, `due_date`, `location`, `people_needed`, `budget_type_id`, `amount_offered`, `speciality_id`, `user_accepted_id`, `message_accepted`, `created_at`, `updated_at`) VALUES
+(2, 'need something', 'hello', 3, 1, 3, -33.70489999999999, 151.09901000000002, '2017-09-12', '', 1, 1, 12, 13, 4, 'yesh', '2017-09-12 22:19:04', '2017-09-13 04:47:03'),
+(3, 'clean something', 'dfmkdsfmsdlf', 4, 1, 1, -12.4634403, 130.84564180000007, '2017-09-12', '', 1, 1, 12, 15, NULL, NULL, '2017-09-13 01:26:35', '2017-09-13 01:26:35'),
+(4, 'dsfdsfds', 'sdfsdfds', 3, 1, 1, -28.016667, 153.39999999999998, '2017-09-12', '', 1, 1, 14, 14, NULL, NULL, '2017-09-13 01:43:05', '2017-09-13 01:43:05');
 
 -- --------------------------------------------------------
 
@@ -735,6 +821,14 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `fb_id`, `active`, `remember_token`, `created_at`, `updated_at`) VALUES
+(3, 'garcia.solutions@gmail.com', '$2y$10$gdylOE/LQun0dlPFRuUkWuejGggPafZtyrG8N7qxDePeufoopIOAS', NULL, 0, NULL, '2017-09-12 22:17:54', '2017-09-12 22:17:54'),
+(4, 'ygoyoneche@gmail.com', '$2y$10$grtGaNx5JNsJCZMlsHzpPumqDmUMVeetTIQhDJUKHgZIwjW5KrWci', NULL, 0, NULL, '2017-09-13 01:11:37', '2017-09-13 01:11:37');
 
 -- --------------------------------------------------------
 
@@ -939,6 +1033,12 @@ ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -1048,7 +1148,7 @@ ALTER TABLE `estates`
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `language_profile`
 --
@@ -1058,7 +1158,7 @@ ALTER TABLE `language_profile`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `oauth_clients`
 --
@@ -1073,12 +1173,12 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `payment_infos`
 --
 ALTER TABLE `payment_infos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `portfolios`
 --
@@ -1093,7 +1193,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `profile_skill`
 --
@@ -1120,10 +1220,15 @@ ALTER TABLE `profile_transportation`
 ALTER TABLE `questions`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `skills`
 --
@@ -1138,7 +1243,7 @@ ALTER TABLE `specialities`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `task_statuses`
 --
@@ -1163,7 +1268,7 @@ ALTER TABLE `transportations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user_types`
 --
