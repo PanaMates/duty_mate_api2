@@ -46,6 +46,6 @@ class Task extends Model
         return $this->hasOne('App\Review');
     }
     public function offerAccepted(){
-        return $this->hasOne('App\Offer','offer_accepted-id');
+        return $this->hasOne('App\Offer','offer_accepted_id');
     }
 }

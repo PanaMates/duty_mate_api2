@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 
-class Registration extends Mailable
+class ReportMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,7 +32,7 @@ class Registration extends Mailable
     public function build()
     {
         return $this->from('jbarrera@dutymate.com.au')
-                    ->subject('👋  Welcome to DutyMate!')
-                     ->view('emails.registration');
+                    ->subject('New Report!')
+                     ->view('emails.report');
     }
 }

@@ -124,3 +124,7 @@ Route::post('change_duty_status_reject','ApiController@change_status_reject');
 //save task review
 
 Route::post('save_review','ApiController@save_review');
+
+//report an user
+
+Route::post('report_user','ApiController@report_user');

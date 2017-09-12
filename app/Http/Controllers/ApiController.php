@@ -21,6 +21,8 @@ use App\Review;
 use App\ProfileSpecielity;
 use App\Transportation;
 use App\Mail\Registration;
+use App\Mail\ReportMail;
+use App\Report;
 use Auth;
 use Mail;
 
@@ -132,6 +134,22 @@ class ApiController extends Controller
     public function getDuties($limit){
                 $tasks = Task::with(['user','user.profile','speciality'])->limit($limit)->get();
                 return response()->json(['msg'=>'OK','tasks'=>$tasks]);
+    }
+    //report an user
+
+    public function report_user(Request $request){
+           $report =  new Report();
+           $report->user_id = $request['user_id'];
+           $report->comment = $request['comment'];
+           $report->user_reporter_id = $request['user_reporter_id'];
+           $report->type_report_id = $request['type_report_id'];
+           if($report->save()){
+                $mailData = Report::where('id',$report->id)->with('user','userReporter','userReporter.profile','user.profile')->get();
+                $this->emailSenderReport('jbarrera@dutymate.com.au',$mailData);
+                return response()->json(['msg'=>'OK']);
+           }
+     
+
     }
 
 
@@ -452,11 +470,16 @@ public function save_review(Request $request){
         return response()->json(['msg'=>'Review Saved','status'=>'OK'],200,[],JSON_NUMERIC_CHECK);  
 }
 
-//send emails
+//send Registration emails
 
 function emailSender($email, $request) {
 		Mail::to($email)->send(new Registration($request));
-	}
+        }
+//send Reports emails
+function emailSenderReport($email, $request) {
+        Mail::to($email)->send(new ReportMail($request));
+}
+
 
         
 
