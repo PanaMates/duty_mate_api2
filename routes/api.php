@@ -128,3 +128,7 @@ Route::post('save_review','ApiController@save_review');
 //report an user
 
 Route::post('report_user','ApiController@report_user');
+
+//change profile pic
+
+Route::post('change_profile_pic','ApiController@changePic');

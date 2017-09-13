@@ -452,6 +452,7 @@ public function change_status(Request $request){
         return response()->json(['msg'=>'OK','response'=>$offer]);
 }
 
+
 //reject offer
 
 public function change_status_reject(Request $request){
@@ -478,6 +479,12 @@ function emailSender($email, $request) {
 //send Reports emails
 function emailSenderReport($email, $request) {
         Mail::to($email)->send(new ReportMail($request));
+}
+
+// change profile pic
+public function changePic(Request $request){
+        $profile = Profile::where(['id'=>$request['id']])->update(['img'=>$request['img']]);
+        return response()->json(['msg'=>'OK']);
 }
 
 
