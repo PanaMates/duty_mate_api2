@@ -487,6 +487,14 @@ public function changePic(Request $request){
         return response()->json(['msg'=>'OK']);
 }
 
+// get profiles
+
+public function getProfiles(){
+        $result = Profile::select('id','name','lastname','latitude','longitude','img','description','user_id')->get();
+        return response()->json($result,200,[],JSON_NUMERIC_CHECK);
+        
+}
+
 
         
 
