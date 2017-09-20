@@ -132,7 +132,7 @@ class ApiController extends Controller
     }
 
     public function getDuties($limit){
-                $tasks = Task::with(['user','user.profile'])->select('title','description','user_id','task_statuse_id','task_latitude','task_longitude','amount_offered')->limit($limit)->get();
+                $tasks = Task::with(['user','user.profile'])->select('id','title','description','user_id','task_statuse_id','task_latitude','task_longitude','amount_offered')->limit($limit)->get();
                 return response()->json(['msg'=>'OK','tasks'=>$tasks]);
     }
     //report an user
