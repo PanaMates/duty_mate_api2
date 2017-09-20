@@ -210,9 +210,8 @@ public function save_offer(Request $request){
 // get offer
 
 public function get_offer($id){
-        $statuses = [1,2,3];
+      
         $offer = Offer::where(['id'=>$id])
-        ->whereIn('task_statuse_id',$statuses)
         ->with(['user','user.profile','task'])->first();
         return response()->json($offer,200,[],JSON_NUMERIC_CHECK);
       
@@ -220,13 +219,17 @@ public function get_offer($id){
 }
 
 public function get_my_duties($id){
-        
-         $duties_result =  Task::where(['user_id'=>$id])->with(['offers','acceptedUser','acceptedUser.profile','review'])->get();
+        $statuses = [1,2,3];
+         $duties_result =  Task::where(['user_id'=>$id])
+         ->whereIn('task_statuse_id',$statuses)
+         ->with(['offers','acceptedUser','acceptedUser.profile','review'])->get();
         return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
 public function get_my_own_duties($id){
-        
-        $duties_result =  Task::where(['user_accepted_id'=>$id])->with(['user','user.profile','review','offers'])->get();
+        $statuses = [1,2,3];
+        $duties_result =  Task::where(['user_accepted_id'=>$id])
+        ->whereIn('task_statuse_id',$statuses)
+        ->with(['user','user.profile','review','offers'])->get();
         return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
 
