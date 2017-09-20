@@ -32,7 +32,7 @@ class Task extends Model
         return $this->belongsTo('App\Speciality');
     }
     public function offers(){
-        return $this->hasMany('App\Offer')->select(['id']);
+        return $this->hasMany('App\Offer')->select('id');
     }
     public function comments(){
         return $this->hasMany('App\Comment');
