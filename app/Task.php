@@ -32,7 +32,7 @@ class Task extends Model
         return $this->belongsTo('App\Speciality');
     }
     public function offers(){
-        return $this->hasMany('App\Offer');
+        return $this->hasMany('App\Offer')->whereIn('offer_status_id',[1,2,3]);
     }
     public function comments(){
         return $this->hasMany('App\Comment');
