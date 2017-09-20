@@ -210,8 +210,10 @@ public function save_offer(Request $request){
 // get offer
 
 public function get_offer($id){
-
-        $offer = Offer::where(['id'=>$id])->with(['user','user.profile','task'])->first();
+        $statuses = [1,2,3];
+        $offer = Offer::where(['id'=>$id])
+        ->whereIn('task_statuse_id',$statuses)
+        ->with(['user','user.profile','task'])->first();
         return response()->json($offer,200,[],JSON_NUMERIC_CHECK);
       
 
