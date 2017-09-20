@@ -156,7 +156,7 @@ class ApiController extends Controller
 
     public function get_duty($id){
 
-            $duty = Task::where(['id'=>$id])->with(['user','user.profile','user.paymentInfo','offers.user.profile','comments.user.profile'])->first();
+            $duty = Task::where(['id'=>$id])->with(['user','user.profile','user.paymentInfo','offers','offers.user.profile', 'comments','comments.user.profile'])->first();
             return response()->json($duty,200,[],JSON_NUMERIC_CHECK);
             
     }
@@ -224,7 +224,7 @@ public function get_my_duties($id){
 }
 public function get_my_own_duties($id){
         
-        $duties_result =  Task::where(['user_accepted_id'=>$id])->with(['user','user.profile','review'])->get();
+        $duties_result =  Task::where(['user_accepted_id'=>$id])->with(['user','user.profile','review','offers'])->get();
         return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
 
