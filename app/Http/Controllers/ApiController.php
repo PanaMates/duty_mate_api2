@@ -219,11 +219,8 @@ public function get_offer($id){
 
 public function get_my_duties($id){
         
-         $duties_posted   = Task::where(['user_id'=>$id,'task_statuse_id'=>1])->with(['offers','comments','estatus'])->get();
-         $duties_accepted = Task::where(['user_id'=>$id ,'task_statuse_id'=>2])->with(['offers','comments','estatus','acceptedUser','acceptedUser.profile'])->get();
-         $duties_finished = Task::where(['user_id'=>$id ,'task_statuse_id'=>3])->with(['offers','comments','estatus','review','acceptedUser','acceptedUser.profile'])->get();
-
-        return response()->json(['msg'=>'OK','duties_posted'=>$duties_posted ,'duties_accepted'=>$duties_accepted ,'duties_finished'=>$duties_finished]);
+         $duties_result =  Task::where(['user_id'=>$id])->with(['offers','acceptedUser','acceptedUser.profile','review'])->get();
+        return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
 public function get_my_own_duties($id){
         
