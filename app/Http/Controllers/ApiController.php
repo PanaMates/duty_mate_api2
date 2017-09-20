@@ -227,11 +227,8 @@ public function get_my_duties($id){
 }
 public function get_my_own_duties($id){
         
-         $duties_posted   = Task::where(['user_accepted_id'=>$id,'task_statuse_id'=>2])->with(['user', 'user.profile','offers','comments','estatus'])->get();
-         $duties_accepted = Task::where(['user_accepted_id'=>$id ,'task_statuse_id'=>3])->with(['user','user.profile','offers','comments','estatus','review'])->get();
-         $duties_finished = Task::where(['user_accepted_id'=>$id ,'task_statuse_id'=>4])->with(['user','user.profile','offers','comments','estatus','review'])->get();
-
-        return response()->json(['msg'=>'OK','duties_posted'=>$duties_posted ,'duties_accepted'=>$duties_accepted ,'duties_finished'=>$duties_finished]);
+        $duties_result =  Task::where(['user_accepted_id'=>$id])->with(['user','user.profile','review'])->get();
+        return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
 
 public function profile_info($id){
