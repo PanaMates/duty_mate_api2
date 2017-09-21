@@ -233,7 +233,7 @@ public function get_my_own_duties($id){
         return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
 public function get_reviews($id){
-        $statuses = [1,2,3];
+        $statuses = [3];
         $duties_result =  Task::where(['user_id'=>$id])
         ->whereIn('task_statuse_id',$statuses)
         ->with(['offers','acceptedUser','acceptedUser.profile','review'])->get();
