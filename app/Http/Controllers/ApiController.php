@@ -236,7 +236,7 @@ public function get_reviews($id){
         $statuses = [3];
         $duties_result =  Task::where(['user_id'=>$id])
         ->whereIn('task_statuse_id',$statuses)
-        ->with(['offers','acceptedUser','acceptedUser.profile','review'])->get();
+        ->with(['offers','user','user.profile','review'])->get();
         return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
 
