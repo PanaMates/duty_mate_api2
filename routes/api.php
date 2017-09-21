@@ -87,6 +87,10 @@ Route::get('get_my_duties/{user_id}','ApiController@get_my_duties');
 
 Route::get('get_my_duties_own/{user_id}','ApiController@get_my_own_duties');
 
+//get reviews
+
+Route::get('get_reviews/{user_id}','ApiController@get_reviews');
+
 //get profile info
 
 Route::get('get_profile_info/{profile_id}','ApiController@profile_info');

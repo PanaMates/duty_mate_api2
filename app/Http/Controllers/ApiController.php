@@ -232,6 +232,13 @@ public function get_my_own_duties($id){
         ->with(['user','user.profile','review','offers'])->get();
         return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
 }
+public function get_reviews($id){
+        $statuses = [2];
+        $duties_result =  Task::where(['user_id'=>$id])
+        ->whereIn('task_statuse_id',$statuses)
+        ->with(['offers','acceptedUser','acceptedUser.profile','review'])->get();
+        return response()->json(['msg'=>'OK','duties_result'=>$duties_result]);
+}
 
 public function profile_info($id){
         $profile_info = Profile::where(['user_id'=>$id])->with('educations','languages','portfolios','transportations','works','specialities')->first();
