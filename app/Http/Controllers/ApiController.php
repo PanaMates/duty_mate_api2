@@ -21,6 +21,7 @@ use App\Review;
 use App\ProfileSpecielity;
 use App\Transportation;
 use App\Mail\Registration;
+use App\Mail\Quote;
 use App\Mail\ReportMail;
 use App\Report;
 use Auth;
@@ -499,6 +500,24 @@ public function getProfiles(){
         $result = Profile::select('id','name','lastname','latitude','longitude','img','description','user_id')->get();
         return response()->json($result,200,[],JSON_NUMERIC_CHECK);
         
+}
+
+
+
+
+
+
+
+
+////////////*******  FOR EASY MOVE */
+
+public function getEasyQuote(Request $request){
+        $this->emailSenderQuote('garcia.solutions@gmail.com',$request);
+
+}
+
+function emailSenderQuote($email, $request) {
+        Mail::to($email)->send(new Quote($request));
 }
 
 

@@ -138,3 +138,11 @@ Route::post('report_user','ApiController@report_user');
 Route::post('change_profile_pic','ApiController@changePic');
 
 Route::get('get_profiles','ApiController@getProfiles');
+
+
+
+// for easy move api for quotes
+
+Route::get('easy_get_quote','ApiController@getEasyQuote');
+
+
