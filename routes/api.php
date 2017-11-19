@@ -143,6 +143,6 @@ Route::get('get_profiles','ApiController@getProfiles');
 
 // for easy move api for quotes
 
-Route::get('easy_get_quote','ApiController@getEasyQuote');
+Route::post('easy_send_quote','ApiController@getEasyQuote');
 
 
