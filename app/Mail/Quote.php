@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 
-class Registration extends Mailable
+class Quote extends Mailable
 {
     use Queueable, SerializesModels;
 
