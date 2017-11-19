@@ -23,11 +23,6 @@
     <th>message</th><th>{{$data->message}}</th>
 </tr>
 
-<tr>
-    <th>hello {{$data}}</th>
- 
-</tr>
-
 </table>
 
 
