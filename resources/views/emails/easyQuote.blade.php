@@ -10,7 +10,21 @@
     }
     
 </style>
-<h2>New Quote Request:</h2>
-<br/>
- <h3></h3>
+
+<table>
+<tr>
+    <th>Service Type</th><th>{{data.service_type}}</th>
+    <th>Origin </th><th>{{data.origin}}</th>
+    <th>Destiny</th><th>{{data.destiny}}</th>
+    <th>Appointment Date</th><th>{{data.appointment_date}}</th>
+    <th>Time Frame</th><th>{{data.time_frame}}</th>
+
+     <th>Name</th><th>{{data.name}}</th>
+    <th>email </th><th>{{data.email}}</th>
+    <th>phone</th><th>{{data.phone}}</th>
+    <th>message</th><th>{{data.message}}</th>
+</tr>
+
+</table>
+
 
