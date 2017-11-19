@@ -513,6 +513,7 @@ public function getProfiles(){
 
 public function getEasyQuote(Request $request){
         $this->emailSenderQuote('garcia.solutions@gmail.com',$request);
+        return response()->json($request);
 
 }
 
