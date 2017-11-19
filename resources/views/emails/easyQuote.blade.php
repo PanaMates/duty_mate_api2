@@ -17,8 +17,6 @@
     <th>Origin </th><th>{{data.origin}}</th>
     <th>Destiny</th><th>{{data.destiny}}</th>
     <th>Appointment Date</th><th>{{data.appointment_date}}</th>
-    <th>Time Frame</th><th>{{data.time_frame}}</th>
-
      <th>Name</th><th>{{data.name}}</th>
     <th>email </th><th>{{data.email}}</th>
     <th>phone</th><th>{{data.phone}}</th>
