@@ -1,28 +1,49 @@
 <style>
-    label{
-        color:grey;
-    }
-    h3{
-       text-transform: capitalize;
-    }
-    h2{
-       text-transform: capitalize;
-    }
+        body {
+        font: normal medium/1.4 sans-serif;
+        }
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+        th, td {
+        padding: 0.25rem;
+        text-align: left;
+        border: 1px solid #ccc;
+        }
+        tbody tr:nth-child(odd) {
+        background: #eee;
+        }
     
 </style>
 
-<table>
-<tr>
-    <th>Service Type</th><th>{{$data->service_type}}</th>
-    <th>Origin </th><th>{{$data->origin}}</th>
-    <th>Destiny</th><th>{{$data->destiny}}</th>
-    <th>Appointment Date</th><th>{{$data->appointment_date}}</th>
-     <th>Name</th><th>{{$data->name}}</th>
-    <th>email </th><th>{{$data->email}}</th>
-    <th>phone</th><th>{{$data->phone}}</th>
-    <th>message</th><th>{{$data->message}}</th>
-</tr>
+<table class="zebra"> 
+                <thead> 
+                <tr> 
+                    <th>Name</th> 
+                    <th>Phone</th> 
+                    <th>Email</th> 
+                    <th>Message</th> 
+                    <th>Apo. Date</th> 
+                    <th>Origin</th>
+                    <th>Destiny</th>
+                     <th>S. Type</th>
+                </tr> 
+                </thead> 
+                <tbody> 
+                <tr> 
+                    <td>{{$data->name}}</td> 
+                    <td>{{$data->phone}}</td> 
+                    <td>{{$data->email}}</td> 
+                    <td>{{$data->message}}</td> 
+                    <td>{{$data->origin}}</td> 
+                    <td>{{$data->destiny}}</td> 
+                    <td>{{$data->service_type}}</td> 
+                </tr> 
 
-</table>
+              
+               
+                </tbody> 
+</table> 
 
 
