@@ -36,6 +36,7 @@
                     <td>{{$data->phone}}</td> 
                     <td>{{$data->email}}</td> 
                     <td>{{$data->message}}</td> 
+                    <td>{{$data->appointment_date}}</td> 
                     <td>{{$data->origin}}</td> 
                     <td>{{$data->destiny}}</td> 
                     <td>{{$data->service_type}}</td> 
