@@ -31,7 +31,7 @@ class Quote extends Mailable
      */
     public function build()
     {
-        return $this->from('jbarrera@dutymate.com.au')
+        return $this->from('info@easymoveservices.com.au')
                     ->subject('👋  You have a New EasyMove Quote Request!')
                      ->view('emails.easyQuote');
     }
