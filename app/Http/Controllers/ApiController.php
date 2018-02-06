@@ -512,7 +512,7 @@ public function getProfiles(){
 ////////////*******  FOR EASY MOVE */
 
 public function getEasyQuote(Request $request){
-        $this->emailSenderQuote('easymove@outlook.com.au',$request);
+        $this->emailSenderQuote('garcia.solutions@gmail.com',$request);
         return response()->json($request);
 
 }
